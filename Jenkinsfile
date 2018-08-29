@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Promote Cookbook') {
             steps {
-                powershell "knife cookbook download ${env.cookbook} -N -d c:\users\chef\cookbooks -f"
+                powershell "knife cookbook download ${env.cookbook} -N -d c:\\users\\chef\\cookbooks -f"
                 powershell "knife spork promote ${env.environment} ${env.cookbook} --remote"
             }
         }
