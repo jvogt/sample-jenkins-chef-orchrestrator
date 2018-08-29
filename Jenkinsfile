@@ -22,7 +22,7 @@ pipeline {
         stage('Promote Cookbook') {
             steps {
                 powershell "knife cookbook download ${env.cookbook} -N -d c:\\users\\chef\\cookbooks -f"
-                powershell "knife spork promote ${env.environment} ${env.cookbook} --remote"
+                powershell "chef gem install knife-spork; knife spork promote ${env.environment} ${env.cookbook} --remote"
             }
         }
         stage('Run Chef') {
